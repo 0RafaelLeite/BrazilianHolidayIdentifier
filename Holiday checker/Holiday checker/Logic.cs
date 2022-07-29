@@ -27,7 +27,7 @@ namespace Holidayidentifier
                 Console.WriteLine(" ");
                 Console.WriteLine("  Checking...");
                 Console.WriteLine(" ");
-                Thread.Sleep(2000);
+                Thread.Sleep(1500);
                 this.DateProvided = DateTime.Today;
             }
             else
@@ -121,7 +121,7 @@ namespace Holidayidentifier
                 Console.WriteLine(" ");
                 Console.WriteLine("  Checking...");
                 Console.WriteLine(" ");
-                Thread.Sleep(2000);
+                Thread.Sleep(1500);
             }
            
         }
