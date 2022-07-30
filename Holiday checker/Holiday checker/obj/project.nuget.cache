@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7j7cvk+sn6EgP8QsbhCltsgyxOXupNM/4AGwXkYL4tDxpgZ8OzmHA2qX+tkbGZaR0xb9/EbbQz2B3iwO6CbBnQ==",
+  "dgSpecHash": "BTFn5owzK8uzggoss+5+NPCORq5WHwDwolj20jtMEzUt/lfKrnuZpnG85L+jOo75O2JhKjFwsa3bEn/7wunxvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rafael.leite\\Desktop\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
+  "projectFilePath": "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

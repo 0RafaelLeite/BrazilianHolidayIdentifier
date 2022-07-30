@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Holidayidentifier
+namespace HolidayIdentifier
 {
-    public class HolidayChecker
+    public class CheckHoliday
     {
         public DateTime DateProvided { get; set; }
 
-        public HolidayChecker(DateTime dateProvided)
+        public CheckHoliday(DateTime dateProvided)
         {
             this.DateProvided = dateProvided;
         }
 
-        public HolidayChecker()
+        public CheckHoliday()
         {
             Console.WriteLine("  First, do you wanna check if today's date is a holiday? enter [1] to YES and [2] to NO");
             Console.Write(" Response: ");
@@ -213,7 +213,7 @@ namespace Holidayidentifier
             }
             else if (this.DateProvided.Day == 2 && this.DateProvided.Month == 11)
             {
-                Holiday = "day of the Dead";
+                Holiday = "All Souls'";
             }
             else if (this.DateProvided.Day == 15 && this.DateProvided.Month == 11)
             {

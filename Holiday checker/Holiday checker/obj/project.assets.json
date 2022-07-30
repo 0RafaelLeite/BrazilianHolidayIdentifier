@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rafael.leite\\Desktop\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
+      "projectUniqueName": "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
       "projectName": "Holiday checker",
-      "projectPath": "C:\\Users\\rafael.leite\\Desktop\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
+      "projectPath": "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
       "packagesPath": "C:\\Users\\rafael.leite\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rafael.leite\\Desktop\\Holiday checker\\Holiday checker\\obj\\",
+      "outputPath": "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
