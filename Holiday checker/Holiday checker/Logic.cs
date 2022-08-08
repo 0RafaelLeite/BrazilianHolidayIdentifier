@@ -114,7 +114,22 @@ namespace HolidayIdentifier
 
                 Console.WriteLine(" ");
                 Console.Write("  Type an year: ");
-                var year = Int32.Parse(Console.ReadLine());
+
+                int year = 0;
+
+                while (year == 0)
+                {
+                    int yearProvided = Int32.Parse(Console.ReadLine());
+
+                    if (yearProvided < 1583)
+                    {
+                        Console.WriteLine("  Type a valid year: ");
+                    }
+                    else
+                    {
+                        year = yearProvided;
+                    }
+                }
 
                 this.DateProvided = new DateTime(year, month, day);
 
@@ -126,9 +141,8 @@ namespace HolidayIdentifier
            
         }
 
-        public string IsHoliday()
+        public DateTime GetEasterDate(int year)
         {
-            int year = this.DateProvided.Year;
             int day;
             int month;
 
@@ -146,8 +160,21 @@ namespace HolidayIdentifier
                 day -= 31;
             }
 
-            DateTime easter = new DateTime(year, month, day);
+            return new DateTime(year, month, day);
+        }
+
+        public string IsHoliday()
+        {
+
+           var easter = GetEasterDate(this.DateProvided.Year);
+
             string Holiday;
+
+            void SetHoliday(string holidayName)
+            {
+                Holiday = holidayName;
+            }
+
             string dayPosition;
 
             if (this.DateProvided.Day == 1 || this.DateProvided.Day == 21 || this.DateProvided.Day == 31)
@@ -169,55 +196,55 @@ namespace HolidayIdentifier
 
             if (easter == this.DateProvided)
             {
-                Holiday = "Easter";
+                SetHoliday("Easter");
             }
             else if (easter.AddDays(60) == this.DateProvided)
             {
-                Holiday = "Corpus Christ";
+                SetHoliday("Corpus Christ");
             }
             else if (this.DateProvided == easter.AddDays(-48) || this.DateProvided == easter.AddDays(-47))
             {
-                Holiday = "Carnival";
+                SetHoliday("Carnival");
             }
             else if (easter.AddDays(-2) == this.DateProvided)
             {
-                Holiday = "Good Friday";
+                SetHoliday("Good Friday");
             }
             else if (easter.AddDays(-46) == this.DateProvided)
             {
-                Holiday = "Ash Wednesday";
+                SetHoliday("Ash Wednesday");
             }
             else if (this.DateProvided.Day == 25 && this.DateProvided.Month == 12)
             {
-                Holiday = "Christmas";
+                SetHoliday("Christmas");
             }
             else if (this.DateProvided.Day == 1 && this.DateProvided.Month == 1)
             {
-                Holiday = "New Year";
+                SetHoliday("New Year");
             }
             else if (this.DateProvided.Day == 21 && this.DateProvided.Month == 4)
             {
-                Holiday = "Brazil's Tira Dentes";
+                SetHoliday("Brazil's Tira Dentes");
             }
             else if (this.DateProvided.Day == 1 && this.DateProvided.Month == 5)
             {
-                Holiday = "International Labor";
+                SetHoliday("International Labor");
             }
             else if (this.DateProvided.Day == 7 && this.DateProvided.Month == 9)
             {
-                Holiday = "Brazil's Independence";
+                SetHoliday("Brazil's Independence");
             }
             else if (this.DateProvided.Day == 12 && this.DateProvided.Month == 10)
             {
-                Holiday = "Our Lady";
+                SetHoliday("Our Lady");
             }
             else if (this.DateProvided.Day == 2 && this.DateProvided.Month == 11)
             {
-                Holiday = "All Souls'";
+                SetHoliday("All Souls'");
             }
             else if (this.DateProvided.Day == 15 && this.DateProvided.Month == 11)
             {
-                Holiday = "Brazil's proclamation of the Republic";
+                SetHoliday("Brazil's proclamation of the Republic");
             }
             else
             {
