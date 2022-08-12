@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj": {}
+    "C:\\Users\\rafael.leite\\source\\repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj": {
+    "C:\\Users\\rafael.leite\\source\\repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
+        "projectUniqueName": "C:\\Users\\rafael.leite\\source\\repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
         "projectName": "Holiday checker",
-        "projectPath": "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
+        "projectPath": "C:\\Users\\rafael.leite\\source\\repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\Holiday checker.csproj",
         "packagesPath": "C:\\Users\\rafael.leite\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafael.leite\\Source\\Repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\obj\\",
+        "outputPath": "C:\\Users\\rafael.leite\\source\\repos\\BrazilianHolidayIdentifier\\Holiday checker\\Holiday checker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

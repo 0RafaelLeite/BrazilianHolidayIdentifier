@@ -6,137 +6,55 @@ using System.Threading.Tasks;
 
 namespace HolidayIdentifier
 {
-    public class CheckHoliday
+    public abstract class CheckHoliday
     {
         public DateTime DateProvided { get; set; }
 
-        public CheckHoliday(DateTime dateProvided)
+        public string Greetings;
+
+        public abstract void SetGreetings();
+        public string GetGreetings()
         {
-            this.DateProvided = dateProvided;
+            return Greetings;
         }
 
+
+        public string Loading;
+
+        public abstract void SetLoading();
+        public string GetLoading()
+        {
+            return Loading;
+        }
+
+        public string Holiday;
+        public abstract void SetHoliday();
+        public string GetHoliday()
+        {
+            return Holiday;
+        }
+
+        public int HolidayId;
+
+        public abstract DateTime GetDate();
+    
         public CheckHoliday()
         {
-            Console.WriteLine("  First, do you wanna check if today's date is a holiday? enter [1] to YES and [2] to NO");
-            Console.Write(" Response: ");
+            SetGreetings();
+            SetLoading();
+            Console.Write(GetGreetings());
 
             int today = Int32.Parse(Console.ReadLine());
 
             if (today == 1)
             {
-                Console.WriteLine(" ");
-                Console.WriteLine("  Checking...");
-                Console.WriteLine(" ");
+                Console.WriteLine(GetLoading());
                 Thread.Sleep(1500);
                 this.DateProvided = DateTime.Today;
             }
             else
             {
-                Console.WriteLine(" ");
-                Console.Write("  Type a day: ");
-                int day = 0;
-
-                while (day == 0)
-                {
-                    var dayProvided = Int32.Parse(Console.ReadLine());
-                    if(dayProvided < 32 && dayProvided > 0)
-                    {
-                        day = dayProvided;
-                    }
-                    else
-                    {
-                        Console.Write("  Type a valid day: ");
-                    }
-                }
-
-                Console.WriteLine(" ");
-                Console.Write("  Type a month: ");
-                int month = 0;
-
-                while (month == 0)
-                {
-                    string monthName = Console.ReadLine().ToUpper().Trim();
-
-
-                    if (monthName == "1" || monthName == "01" || monthName == "JANUARY")
-                    {
-                        month = 1;
-                    }
-                    else if (monthName == "2" || monthName == "02" || monthName == "FEBRUARY")
-                    {
-                        month = 2;
-                    }
-                    else if (monthName == "3" || monthName == "03" || monthName == "MARCH")
-                    {
-                        month = 3;
-                    }
-                    else if (monthName == "4" || monthName == "04" || monthName == "APRIL")
-                    {
-                        month = 4;
-                    }
-                    else if (monthName == "5" || monthName == "05" || monthName == "MAY")
-                    {
-                        month = 5;
-                    }
-                    else if (monthName == "6" || monthName == "06" || monthName == "JUNE")
-                    {
-                        month = 6;
-                    }
-                    else if (monthName == "7" || monthName == "07" || monthName == "JULY")
-                    {
-                        month = 7;
-                    }
-                    else if (monthName == "8" || monthName == "08" || monthName == "AUGUST")
-                    {
-                        month = 8;
-                    }
-                    else if (monthName == "9" || monthName == "09" || monthName == "SETEMBER")
-                    {
-                        month = 9;
-                    }
-                    else if (monthName == "10" || monthName == "OCTOBER")
-                    {
-                        month = 10;
-                    }
-                    else if (monthName == "11" || monthName == "NOVEMBER")
-                    {
-                        month = 11;
-                    }
-                    else if (monthName == "12" || monthName == "DECEMBER")
-                    {
-                        month = 12;
-                    }
-                    else
-                    {
-                        Console.Write("  Type a valid month: ");
-                    }
-                }
-
-                Console.WriteLine(" ");
-                Console.Write("  Type an year: ");
-
-                int year = 0;
-
-                while (year == 0)
-                {
-                    int yearProvided = Int32.Parse(Console.ReadLine());
-
-                    if (yearProvided < 1583)
-                    {
-                        Console.WriteLine("  Type a valid year: ");
-                    }
-                    else
-                    {
-                        year = yearProvided;
-                    }
-                }
-
-                this.DateProvided = new DateTime(year, month, day);
-
-                Console.WriteLine(" ");
-                Console.WriteLine("  Checking...");
-                Console.WriteLine(" ");
-                Thread.Sleep(1500);
+                this.GetDate();
             }
            
         }
@@ -160,99 +78,74 @@ namespace HolidayIdentifier
                 day -= 31;
             }
 
+            //where did all of this math come from https://stackoverflow.com/questions/2510383/how-can-i-calculate-what-date-good-friday-falls-on-given-a-year
+
             return new DateTime(year, month, day);
         }
 
-        public string IsHoliday()
+        public int IsHoliday()
         {
 
            var easter = GetEasterDate(this.DateProvided.Year);
 
-            string Holiday;
-
-            void SetHoliday(string holidayName)
-            {
-                Holiday = holidayName;
-            }
-
-            string dayPosition;
-
-            if (this.DateProvided.Day == 1 || this.DateProvided.Day == 21 || this.DateProvided.Day == 31)
-            {
-                dayPosition = "st";
-            }
-            else if (this.DateProvided.Day == 2 || this.DateProvided.Day == 22)
-            {
-                dayPosition = "nd";
-            }
-            else if (this.DateProvided.Day == 3 || this.DateProvided.Day == 23)
-            {
-                dayPosition = "rd";
-            }
-            else
-            {
-                dayPosition = "th";
-            }
-
             if (easter == this.DateProvided)
             {
-                SetHoliday("Easter");
+                HolidayId = 1;
             }
             else if (easter.AddDays(60) == this.DateProvided)
             {
-                SetHoliday("Corpus Christ");
+                HolidayId = 2;
             }
             else if (this.DateProvided == easter.AddDays(-48) || this.DateProvided == easter.AddDays(-47))
             {
-                SetHoliday("Carnival");
+                HolidayId = 3;
             }
             else if (easter.AddDays(-2) == this.DateProvided)
             {
-                SetHoliday("Good Friday");
+                HolidayId = 4;
             }
             else if (easter.AddDays(-46) == this.DateProvided)
             {
-                SetHoliday("Ash Wednesday");
+                HolidayId = 5;
             }
             else if (this.DateProvided.Day == 25 && this.DateProvided.Month == 12)
             {
-                SetHoliday("Christmas");
+                HolidayId = 6;
             }
             else if (this.DateProvided.Day == 1 && this.DateProvided.Month == 1)
             {
-                SetHoliday("New Year");
+                HolidayId = 7;
             }
             else if (this.DateProvided.Day == 21 && this.DateProvided.Month == 4)
             {
-                SetHoliday("Brazil's Tira Dentes");
+                HolidayId = 8;
             }
             else if (this.DateProvided.Day == 1 && this.DateProvided.Month == 5)
             {
-                SetHoliday("International Labor");
+                HolidayId = 9;
             }
             else if (this.DateProvided.Day == 7 && this.DateProvided.Month == 9)
             {
-                SetHoliday("Brazil's Independence");
+                HolidayId = 10;
             }
             else if (this.DateProvided.Day == 12 && this.DateProvided.Month == 10)
             {
-                SetHoliday("Our Lady");
+                HolidayId = 11;
             }
             else if (this.DateProvided.Day == 2 && this.DateProvided.Month == 11)
             {
-                SetHoliday("All Souls'");
+                HolidayId = 12;
             }
             else if (this.DateProvided.Day == 15 && this.DateProvided.Month == 11)
             {
-                SetHoliday("Brazil's proclamation of the Republic");
+                HolidayId = 13;
             }
             else
             {
-                return $"  Unfortunately {this.DateProvided.Month}/{this.DateProvided.Day}{dayPosition} It's not a holiday :´(, you got to work...";
+                HolidayId = 0;
             }
 
-
-            return $"  It's a holiday! {this.DateProvided.Month}/{this.DateProvided.Day}{dayPosition} is {Holiday} day";
+            return HolidayId;
         }
 }
 }
