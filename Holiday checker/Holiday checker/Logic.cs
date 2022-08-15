@@ -86,7 +86,7 @@ namespace HolidayIdentifier
         public int IsHoliday()
         {
 
-           var easter = GetEasterDate(this.DateProvided.Year);
+            var easter = GetEasterDate(this.DateProvided.Year);
 
             if (easter == this.DateProvided)
             {
@@ -95,18 +95,21 @@ namespace HolidayIdentifier
             else if (easter.AddDays(60) == this.DateProvided)
             {
                 HolidayId = 2;
+
             }
-            else if (this.DateProvided == easter.AddDays(-48) || this.DateProvided == easter.AddDays(-47))
+            else if (this.DateProvided == easter.AddDays(-47))
             {
                 HolidayId = 3;
             }
             else if (easter.AddDays(-2) == this.DateProvided)
             {
                 HolidayId = 4;
+
             }
             else if (easter.AddDays(-46) == this.DateProvided)
             {
                 HolidayId = 5;
+
             }
             else if (this.DateProvided.Day == 25 && this.DateProvided.Month == 12)
             {
@@ -115,30 +118,37 @@ namespace HolidayIdentifier
             else if (this.DateProvided.Day == 1 && this.DateProvided.Month == 1)
             {
                 HolidayId = 7;
+
             }
             else if (this.DateProvided.Day == 21 && this.DateProvided.Month == 4)
             {
                 HolidayId = 8;
+
             }
             else if (this.DateProvided.Day == 1 && this.DateProvided.Month == 5)
             {
                 HolidayId = 9;
+
             }
             else if (this.DateProvided.Day == 7 && this.DateProvided.Month == 9)
             {
                 HolidayId = 10;
+
             }
             else if (this.DateProvided.Day == 12 && this.DateProvided.Month == 10)
             {
                 HolidayId = 11;
+
             }
             else if (this.DateProvided.Day == 2 && this.DateProvided.Month == 11)
             {
                 HolidayId = 12;
+
             }
             else if (this.DateProvided.Day == 15 && this.DateProvided.Month == 11)
             {
                 HolidayId = 13;
+
             }
             else
             {
